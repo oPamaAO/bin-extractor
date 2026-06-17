@@ -1,0 +1,36 @@
+[package]
+name = "bin-extractor"
+version = "1.0.0"
+description = "Albion Online .bin Game Data Extractor — decrypt, parse, and export to JSON"
+edition = "2021"
+authors = ["AlbionTools"]
+repository = "https://github.com/AlbionTools/bin-extractor"
+license = "MIT"
+keywords = ["albion", "albion-online", "game-data", "extractor", "mmo"]
+categories = ["command-line-utilities", "game-development"]
+
+[[bin]]
+name = "bin-extract"
+path = "src/main.rs"
+
+[dependencies]
+# DES-CBC decryption
+des = "0.8"
+
+# GZip decompression
+flate2 = "1"
+
+# XML parsing
+quick-xml = "0.37"
+
+# CLI & utilities
+clap = { version = "4", features = ["derive", "env"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+
+# Terminal colors
+colored = "3"
+
+# File size formatting
+humansize = "2"
